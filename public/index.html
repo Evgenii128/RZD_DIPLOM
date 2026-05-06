@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <meta name="theme-color" content="#1a2a3a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <meta name="theme-color" content="#1a2a3a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <title>РЖД-ТехСервис | Официальный сайт</title>
+    <link rel="stylesheet" href="/assets/css/variables.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/pages.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="app-container public-page">
+      <header class="app-header public-header">
+        <div class="header-left">
+          <div class="logo">
+            <div class="logo-icon">🚂</div>
+            <div class="logo-text">
+              <h1>ООО "РЖД-ТехСервис"</h1>
+              <div class="subtitle">
+                Профессиональное обслуживание железнодорожной инфраструктуры
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header-right">
+          <a
+            href="/profile"
+            class="btn btn-login-header"
+            style="margin-right: 10px"
+          >
+            <i class="fas fa-user"></i> Личный кабинет
+          </a>
+          <button class="btn btn-login-header" onclick="showLoginModal()">
+            <i class="fas fa-lock"></i> Вход для сотрудников
+          </button>
+        </div>
+      </header>
+
+      <main class="public-main">
+        <section class="hero-section">
+          <div class="hero-content">
+            <h1>Надёжность и безопасность ваших путей</h1>
+            <p>
+              Более 10 лет обеспечиваем бесперебойную работу железнодорожных
+              объектов. Профессиональный подход и современное оборудование.
+            </p>
+            <a
+              href="#"
+              onclick="checkAuthAndRedirect(event)"
+              class="btn-primary-large"
+            >
+              <i class="fas fa-pen"></i> Подать заявление на обслуживание
+            </a>
+          </div>
+          <div class="hero-image">🚄</div>
+        </section>
+
+        <div class="stats-row-public">
+          <div class="stat-card-public">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Лет на рынке</div>
+          </div>
+          <div class="stat-card-public">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Выполненных проектов</div>
+          </div>
+          <div class="stat-card-public">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">Довольных клиентов</div>
+          </div>
+          <div class="stat-card-public">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Сотрудников</div>
+          </div>
+        </div>
+
+        <section class="services-section">
+          <h2>Наши услуги</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <i class="fas fa-tools"></i>
+              <h3>Техническое обслуживание</h3>
+              <p>
+                Плановое и внеплановое ТО оборудования и путей любой сложности
+              </p>
+            </div>
+            <div class="service-card">
+              <i class="fas fa-hard-hat"></i>
+              <h3>Ремонт путей</h3>
+              <p>
+                Восстановление и замена железнодорожного полотна с гарантией
+                качества
+              </p>
+            </div>
+            <div class="service-card">
+              <i class="fas fa-bolt"></i>
+              <h3>Электромонтажные работы</h3>
+              <p>
+                Монтаж и обслуживание электрооборудования железнодорожной
+                инфраструктуры
+              </p>
+            </div>
+            <div class="service-card">
+              <i class="fas fa-chart-line"></i>
+              <h3>Экспертиза и консультации</h3>
+              <p>
+                Профессиональная оценка состояния и рекомендации по модернизации
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-section">
+          <h2>Почему выбирают нас</h2>
+          <p>
+            ООО "РЖД-ТехСервис" — это команда профессионалов с многолетним
+            опытом в сфере обслуживания железнодорожной инфраструктуры. Мы
+            используем современное оборудование и передовые технологии для
+            обеспечения максимальной надёжности и безопасности.
+          </p>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <div class="footer-content">
+          <div class="footer-left">
+            <p>© 2026 ООО "РЖД-ТехСервис". Все права защищены.</p>
+          </div>
+          <div class="footer-right">
+            <div class="tech-stack">
+              <span class="badge"></span>
+              <span class="badge"></span>
+              <span class="badge"></span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <div class="modal-overlay" id="loginModal">
+      <div class="modal modal-sm">
+        <div class="modal-header">
+          <h3><i class="fas fa-lock"></i> Вход для сотрудников</h3>
+          <button class="btn-close" onclick="closeLoginModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div
+            id="loginError"
+            style="
+              color: #e74c3c;
+              background: #fde8e8;
+              padding: 10px;
+              border-radius: 8px;
+              margin-bottom: 15px;
+              display: none;
+            "
+          >
+            <i class="fas fa-exclamation-circle"></i> <span></span>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-user"></i> Логин</label>
+            <input
+              type="text"
+              id="adminUsername"
+              placeholder="Введите логин"
+              value=""
+            />
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-key"></i> Пароль</label>
+            <input
+              type="password"
+              id="adminPassword"
+              placeholder="Введите пароль"
+              value=""
+            />
+          </div>
+          <p style="color: #7f8c8d; font-size: 0.85rem; margin-top: 10px">
+            <i class="fas fa-info-circle"></i> <strong>Логин:</strong> admin |
+            <strong>Пароль:</strong> admin123
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closeLoginModal()">
+            Отмена
+          </button>
+          <button class="btn btn-primary" onclick="login()">
+            <i class="fas fa-sign-in-alt"></i> Войти
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="authRequiredModal">
+      <div class="modal modal-sm">
+        <div class="modal-header">
+          <h3><i class="fas fa-lock"></i> Требуется авторизация</h3>
+          <button class="btn-close" onclick="closeModal('authRequiredModal')">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body" style="text-align: center; padding: 30px 20px">
+          <div style="font-size: 4rem; margin-bottom: 15px">🔐</div>
+          <p style="font-size: 1.1rem; color: #1a2a3a; margin-bottom: 10px">
+            Для подачи заявления необходимо войти
+          </p>
+          <p style="color: #7f8c8d; font-size: 0.9rem; margin-bottom: 20px">
+            Войдите в личный кабинет или зарегистрируйтесь
+          </p>
+          <div
+            style="
+              display: flex;
+              gap: 10px;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a
+              href="/login"
+              class="btn btn-primary"
+              style="text-decoration: none"
+              >Войти</a
+            >
+            <a
+              href="/register"
+              class="btn btn-secondary"
+              style="text-decoration: none"
+              >Зарегистрироваться</a
+            >
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-secondary"
+            onclick="closeModal('authRequiredModal')"
+          >
+            Закрыть
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      async function checkAuthAndRedirect(e) {
+        e.preventDefault();
+        try {
+          const res = await fetch("/api/client/check-auth");
+          const data = await res.json();
+          if (data.authenticated) {
+            window.location.href = "/request";
+          } else {
+            showModal("authRequiredModal");
+          }
+        } catch {
+          showModal("authRequiredModal");
+        }
+      }
+
+      function closeModal(id) {
+        document.getElementById(id).classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      function showModal(id) {
+        document.getElementById(id).classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        if (
+          new URLSearchParams(window.location.search).get("login") ===
+          "required"
+        ) {
+          showLoginModal();
+        }
+      });
+
+      function showLoginModal() {
+        showModal("loginModal");
+        document.getElementById("adminUsername").focus();
+      }
+
+      function closeLoginModal() {
+        closeModal("loginModal");
+      }
+
+      async function login() {
+        const username = document.getElementById("adminUsername").value;
+        const password = document.getElementById("adminPassword").value;
+        if (!username || !password) {
+          const err = document.getElementById("loginError");
+          err.querySelector("span").textContent = "Введите логин и пароль";
+          err.style.display = "block";
+          return;
+        }
+        try {
+          const response = await fetch("/api/admin/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password }),
+          });
+          const result = await response.json();
+          if (response.ok && result.success) {
+            window.location.href = "/admin";
+          } else {
+            const err = document.getElementById("loginError");
+            err.querySelector("span").textContent =
+              result.error || "Ошибка входа";
+            err.style.display = "block";
+          }
+        } catch (error) {
+          const err = document.getElementById("loginError");
+          err.querySelector("span").textContent = "Ошибка соединения";
+          err.style.display = "block";
+        }
+      }
+
+      document
+        .getElementById("adminPassword")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") login();
+        });
+
+      document
+        .getElementById("loginModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeLoginModal();
+        });
+
+      document
+        .getElementById("authRequiredModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeModal("authRequiredModal");
+        });
+    </script>
+  </body>
+</html>

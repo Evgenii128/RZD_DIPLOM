@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <meta name="theme-color" content="#1a2a3a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <title>Личный кабинет - РЖД-ТехСервис</title>
+    <link rel="stylesheet" href="/assets/css/variables.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="profile-page-body">
+    <header class="profile-header">
+      <div class="profile-header-left">
+        <div class="profile-logo">🚂</div>
+        <div>
+          <h1>Личный кабинет</h1>
+          <p>РЖД-ТехСервис</p>
+        </div>
+      </div>
+      <div class="profile-header-right">
+        <span id="userNameDisplay"></span>
+        <a href="/request" class="profile-btn profile-btn-primary">
+          <i class="fas fa-plus"></i> Новая заявка
+        </a>
+        <button onclick="logout()" class="profile-btn profile-btn-danger">
+          <i class="fas fa-sign-out-alt"></i> Выйти
+        </button>
+      </div>
+    </header>
+
+    <main class="profile-container">
+      <div class="profile-stats-grid">
+        <div class="profile-stat-item total">
+          <div class="profile-stat-icon"><i class="fas fa-file-alt"></i></div>
+          <div>
+            <div class="profile-stat-num" id="totalRequests">0</div>
+            <div class="profile-stat-txt">Всего заявок</div>
+          </div>
+        </div>
+        <div class="profile-stat-item new">
+          <div class="profile-stat-icon"><i class="fas fa-star"></i></div>
+          <div>
+            <div class="profile-stat-num" id="newRequests">0</div>
+            <div class="profile-stat-txt">Новых</div>
+          </div>
+        </div>
+        <div class="profile-stat-item progress">
+          <div class="profile-stat-icon"><i class="fas fa-spinner"></i></div>
+          <div>
+            <div class="profile-stat-num" id="progressRequests">0</div>
+            <div class="profile-stat-txt">В работе</div>
+          </div>
+        </div>
+        <div class="profile-stat-item done">
+          <div class="profile-stat-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div>
+            <div class="profile-stat-num" id="completedRequests">0</div>
+            <div class="profile-stat-txt">Завершено</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-requests-card">
+        <h2><i class="fas fa-list"></i> Мои заявки</h2>
+        <div id="myRequestsList">
+          <div style="text-align: center; padding: 40px; color: #95a5a6">
+            <i
+              class="fas fa-spinner fa-spin"
+              style="font-size: 2rem; display: block; margin-bottom: 10px"
+            ></i>
+            <p>Загрузка...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      async function checkAuth() {
+        try {
+          const res = await fetch("/api/client/check-auth");
+          const data = await res.json();
+          if (!data.authenticated) {
+            window.location.href = "/login";
+          }
+        } catch {
+          window.location.href = "/login";
+        }
+      }
+      checkAuth();
+    </script>
+    <script src="/assets/js/profile.js"></script>
+  </body>
+</html>

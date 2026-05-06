@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <meta name="theme-color" content="#1a2a3a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <title>Подать заявление - РЖД-ТехСервис</title>
+    <link rel="stylesheet" href="/assets/css/variables.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/request.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div>
+          <h1>🚂 РЖД-ТехСервис</h1>
+          <p style="margin: 5px 0 0; opacity: 0.9">
+            Выбор услуг и подача заявления
+          </p>
+        </div>
+        <a href="/"><i class="fas fa-home"></i> На главную</a>
+      </div>
+
+      <div class="form-card" id="requestFormContainer">
+        <div id="formContentWrapper">
+          <h2 class="section-title">
+            <i class="fas fa-tools"></i> Выберите необходимые услуги
+          </h2>
+
+          <div class="services-container" id="servicesList">
+            <div class="loading-services">
+              <i class="fas fa-spinner fa-spin"></i>
+              <p>Загрузка доступных услуг...</p>
+            </div>
+          </div>
+
+          <div
+            id="totalPriceContainer"
+            class="total-price"
+            style="display: none"
+          >
+            <span class="total-price-label"
+              ><i class="fas fa-calculator"></i> Общая стоимость:</span
+            >
+            <span id="totalPriceValue">0 ₽</span>
+          </div>
+
+          <h2 class="section-title" style="margin-top: 30px">
+            <i class="fas fa-address-card"></i> Контактная информация
+          </h2>
+
+          <form id="publicRequestForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label><i class="fas fa-user"></i> Ваше ФИО *</label>
+                <input
+                  type="text"
+                  id="full_name"
+                  required
+                  placeholder="Иванов Иван Иванович"
+                />
+              </div>
+              <div class="form-group">
+                <label><i class="fas fa-building"></i> Название компании</label>
+                <input
+                  type="text"
+                  id="company_name"
+                  placeholder="ООО 'Ваша компания'"
+                />
+              </div>
+              <div class="form-group">
+                <label><i class="fas fa-phone"></i> Телефон *</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  required
+                  placeholder="+7 (999) 123-45-67"
+                />
+              </div>
+              <div class="form-group">
+                <label><i class="fas fa-envelope"></i> Email *</label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  placeholder="your@email.com"
+                />
+              </div>
+              <div class="form-group">
+                <label><i class="fas fa-calendar-alt"></i> Желаемая дата</label>
+                <input type="date" id="preferred_date" />
+              </div>
+            </div>
+
+            <input
+              type="hidden"
+              id="selectedServicesData"
+              name="selected_services"
+            />
+            <input type="hidden" id="totalAmount" name="total_amount" />
+
+            <div
+              id="errorContainer"
+              class="error-message"
+              style="display: none"
+            >
+              <i class="fas fa-exclamation-circle"></i>
+              <span id="errorText"></span>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <i class="fas fa-paper-plane"></i> Отправить заявление
+            </button>
+          </form>
+        </div>
+
+        <div id="successBlock" style="display: none">
+          <div class="success-wrapper">
+            <div class="success-card-modern">
+              <div class="success-header">
+                <div class="success-icon-animated">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Заявка успешно отправлена!</h2>
+                <p>Мы получили ваш запрос и уже начали обработку</p>
+              </div>
+              <div class="success-body">
+                <div class="status-card">
+                  <div class="status-badge-new">
+                    <div class="dot-pulse"></div>
+                    <span>Статус: В обработке</span>
+                  </div>
+                  <div class="status-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <span id="currentDate"></span>
+                  </div>
+                </div>
+
+                <div class="info-grid-modern">
+                  <div class="info-tile">
+                    <div class="info-label">
+                      <i class="fas fa-hashtag"></i> Номер заявки
+                    </div>
+                    <div class="info-value" id="successReqNumber">—</div>
+                  </div>
+                  <div class="info-tile">
+                    <div class="info-label">
+                      <i class="fas fa-user"></i> Заявитель
+                    </div>
+                    <div
+                      class="info-value small"
+                      id="successCustomerName"
+                    ></div>
+                  </div>
+                </div>
+
+                <div class="service-summary-modern">
+                  <h4>
+                    <i class="fas fa-clipboard-list"></i> Выбранные услуги
+                  </h4>
+                  <div
+                    class="service-list-modern"
+                    id="summaryServicesList"
+                  ></div>
+                </div>
+
+                <div class="total-modern-card">
+                  <span><i class="fas fa-ruble-sign"></i> Итого к оплате</span>
+                  <span class="total-value" id="successTotalAmount">0 ₽</span>
+                </div>
+
+                <div class="action-buttons-modern">
+                  <a href="/" class="btn-modern-primary">
+                    <i class="fas fa-home"></i> На главную
+                  </a>
+                  <a href="/profile" class="btn-modern-secondary">
+                    <i class="fas fa-user"></i> В кабинет
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/assets/js/request.js"></script>
+    <script>
+      (async function () {
+        try {
+          const res = await fetch("/api/client/current-user");
+          const data = await res.json();
+
+          if (data.success && data.user) {
+            const user = data.user;
+
+            const fullNameEl = document.getElementById("full_name");
+            const phoneEl = document.getElementById("phone");
+            const emailEl = document.getElementById("email");
+            const companyEl = document.getElementById("company_name");
+
+            if (fullNameEl && user.name && !fullNameEl.value)
+              fullNameEl.value = user.name;
+            if (phoneEl && user.phone && !phoneEl.value)
+              phoneEl.value = user.phone;
+            if (emailEl && user.email && !emailEl.value)
+              emailEl.value = user.email;
+
+            if (user.email) {
+              try {
+                const clientsRes = await fetch(
+                  "/api/clients?search=" + encodeURIComponent(user.email),
+                );
+                const clients = await clientsRes.json();
+                if (
+                  clients &&
+                  clients.length > 0 &&
+                  clients[0].company_name &&
+                  companyEl &&
+                  !companyEl.value
+                ) {
+                  companyEl.value = clients[0].company_name;
+                }
+              } catch (e) {}
+            }
+
+            console.log("✅ Данные профиля подставлены");
+          }
+        } catch (e) {
+          console.log("👤 Клиент не авторизован, поля пустые");
+        }
+
+        const date = new Date();
+        date.setDate(date.getDate() + 3);
+        const dateEl = document.getElementById("preferred_date");
+        if (dateEl) dateEl.value = date.toISOString().split("T")[0];
+      })();
+    </script>
+  </body>
+</html>

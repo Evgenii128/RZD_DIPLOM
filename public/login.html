@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <meta name="theme-color" content="#1a2a3a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <title>Вход - РЖД-ТехСервис</title>
+    <link rel="stylesheet" href="/assets/css/variables.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/pages.css" />
+    <link rel="stylesheet" href="/assets/css/auth.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="auth-page">
+    <div class="auth-card">
+      <div class="auth-logo">🚂</div>
+      <h1>Вход в личный кабинет</h1>
+      <p class="auth-subtitle">РЖД-ТехСервис</p>
+
+      <div id="authError" class="auth-error">
+        <i class="fas fa-exclamation-circle"></i> <span></span>
+      </div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label><i class="fas fa-user"></i> Логин</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Введите логин"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-key"></i> Пароль</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Введите пароль"
+            required
+          />
+        </div>
+        <button type="submit" class="auth-btn">
+          <i class="fas fa-sign-in-alt"></i> Войти
+        </button>
+      </form>
+
+      <p class="auth-link">
+        Нет аккаунта? <a href="/register">Зарегистрироваться</a>
+      </p>
+      <a href="/" class="auth-back-link"
+        ><i class="fas fa-arrow-left"></i> На главную</a
+      >
+    </div>
+
+    <script src="/assets/js/login.js"></script>
+  </body>
+</html>

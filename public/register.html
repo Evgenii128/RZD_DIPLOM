@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <meta name="theme-color" content="#1a2a3a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <title>Регистрация - РЖД-ТехСервис</title>
+    <link rel="stylesheet" href="/assets/css/variables.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/pages.css" />
+    <link rel="stylesheet" href="/assets/css/auth.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="auth-page">
+    <div class="auth-card">
+      <div class="auth-logo">🚂</div>
+      <h1>Регистрация</h1>
+      <p class="auth-subtitle">Создайте аккаунт в РЖД-ТехСервис</p>
+
+      <div id="authError" class="auth-error">
+        <i class="fas fa-exclamation-circle"></i> <span></span>
+      </div>
+      <div id="authSuccess" class="auth-success">
+        <i class="fas fa-check-circle"></i> <span></span>
+      </div>
+
+      <form id="registerForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label><i class="fas fa-user"></i> Имя</label>
+            <input type="text" id="first_name" placeholder="Иван" />
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-user"></i> Фамилия</label>
+            <input type="text" id="last_name" placeholder="Иванов" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-user-circle"></i> Логин *</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Придумайте логин"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-envelope"></i> Email *</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="your@email.com"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-phone"></i> Телефон</label>
+          <input type="tel" id="phone" placeholder="+7 (999) 123-45-67" />
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-building"></i> Компания</label>
+          <input type="text" id="company" placeholder="ООО 'Компания'" />
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-key"></i> Пароль *</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Минимум 6 символов"
+            required
+            minlength="6"
+          />
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-key"></i> Повторите пароль *</label>
+          <input
+            type="password"
+            id="password2"
+            placeholder="Повторите пароль"
+            required
+          />
+        </div>
+        <button type="submit" class="auth-btn auth-btn-register">
+          <i class="fas fa-user-plus"></i> Зарегистрироваться
+        </button>
+      </form>
+
+      <p class="auth-link">Уже есть аккаунт? <a href="/login">Войти</a></p>
+      <a href="/" class="auth-back-link"
+        ><i class="fas fa-arrow-left"></i> На главную</a
+      >
+    </div>
+
+    <script src="/assets/js/register.js"></script>
+  </body>
+</html>
