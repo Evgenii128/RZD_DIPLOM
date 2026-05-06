@@ -74,6 +74,7 @@ cd diplom_rzd-main
 
 ```bash
 npm install
+npm install bcryptjs
 ```
 
 3️⃣ **Настройте переменные окружения:**
